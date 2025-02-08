@@ -13,7 +13,8 @@ function Home(params) {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const [stores, setStores] = useState([]);
-  const [sortCriteria, setSortCriteria] = useState('');
+  const [selectedCriteria, setSelectedCriteria] = useState('');
+  // const [sortCriteria, setSortCriteria] = useState()
   const [sortedStores, setSortedStores] = useState([]);
   const [visibleColumn, setVisibleColumn] = useState([]);
 
@@ -46,7 +47,10 @@ function Home(params) {
     })
       .then(res => res.json())
       .then(json => {
-        setStores(json); // Store fetched users in state
+        setStores(json);
+        setSortedStores(json);
+        setVisibleColumn('');
+         // Store fetched users in state
       })
       .catch(err => console.error("Error fetching users:", err));
   }, []);
@@ -75,31 +79,41 @@ function Home(params) {
   //   setImage(productToUpdate.image);
   // }
 
-  const handleSortChange = async (e) => {
-    const criteria = e.target.value;
-    setSortCriteria(criteria);
-    setVisibleColumn(criteria);
 
-    if (criteria && stores.length > 0) {
+  const handleSelectChange = (e) => {
+    setSelectedCriteria(e.target.value)
+  }
+
+
+  const handleSortChange = async (e) => {
+
+      if (selectedCriteria === "all") {
+        setSortedStores(stores);
+        setVisibleColumn("");
+        return;
+      }
+
+    setVisibleColumn(selectedCriteria);
+
+
+    if ( stores.length > 0) {
 
       const sortedData = [...stores].sort((a, b) => {
-        if (criteria === 'title') return a.title.localeCompare(b.title);
-        if (criteria === 'category') return a.category.localeCompare(b.title)
-        if (criteria === 'price') return a.price - b.price;
+        if (selectedCriteria === 'title') return a.title.localeCompare(b.title);
+        if (selectedCriteria === 'category') return a.category.localeCompare(b.category)
+        if (selectedCriteria === 'price') return a.price - b.price;
         return 0;
       });
 
       console.log("Sorted Data:", sortedData)
 
-      setStores(sortedData);
-    } else {
-      setSortedStores([]);
-    }
+      setSortedStores(sortedData);
+    } 
   }
 
   return (
     <div>
-      <Navbar style={{width:"160vh"}} />
+      <Navbar />
       <Sidebar />
       <div className="content">
         <div className="d-flex px-3 py-3 justify-content-between stubborn">
@@ -157,16 +171,16 @@ function Home(params) {
           <div className="d-flex flex-row w-75 changerole">
             <div className="gaps">
               <select className="form-select d-inline-block w-auto
-               "value={sortCriteria}
-                onChange={handleSortChange}
+               "value={selectedCriteria}
+                onChange={handleSelectChange}
               >
-                <option value="" >Change</option>
+                <option value="all">See All</option>
                 <option value="title">Title</option>
                 <option value="price">Price</option>
                 <option value="category">Category</option>
               </select>
             </div>
-            <button className="btn border-0 valid" onChange={handleSortChange} >Change</button>
+            <button className="btn border-0 valid" onClick={handleSortChange} >Change</button>
             <SearchBar className="w-100" />
           </div>
           <nav aria-label="Page navigation">
@@ -182,7 +196,7 @@ function Home(params) {
         </div>
 
         <div className="w-100">
-          {stores.length > 0 && (
+          {sortedStores.length > 0 && (
             <table className="table border-radius-2 table-transparent w-100">
               <thead>
                 <tr className="table-rw">
@@ -203,7 +217,7 @@ function Home(params) {
                 </tr>
               </thead>
               <tbody>
-                {(sortedStores.length > 0 ? sortedStores : stores).map((product, index) =>
+                {sortedStores.map((product, index) =>
                   <tr key={product.id}>
                    {visibleColumn === "" && (
                     <>
