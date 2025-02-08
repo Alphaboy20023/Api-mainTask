@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import Sidebar from "../components/sidebar";
-import { NavLink } from "react-router-dom";
 import SearchBar from "../components/buttons";
 import { FaCircleChevronLeft} from "react-icons/fa6";
 import { FaCircleChevronRight } from "react-icons/fa6";
@@ -158,17 +157,16 @@ function Home(params) {
           <div className="d-flex flex-row w-75 changerole">
             <div className="gaps">
               <select className="form-select d-inline-block w-auto
-              
-              "value={sortCriteria}
+               "value={sortCriteria}
                 onChange={handleSortChange}
               >
-                <option value="" >Show all</option>
+                <option value="" >Change</option>
                 <option value="title">Title</option>
                 <option value="price">Price</option>
                 <option value="category">Category</option>
               </select>
             </div>
-            <NavLink className="btn border-0 valid" to="">Change</NavLink>
+            <button className="btn border-0 valid" onChange={handleSortChange} >Change</button>
             <SearchBar className="w-100" />
           </div>
           <nav aria-label="Page navigation">

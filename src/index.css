@@ -23,7 +23,7 @@ code {
 
 .content {
   margin-left: 89px;
-margin-top: 70px;
+  margin-top: 70px;
   padding-right: 20px;
   width: auto;
 }
@@ -169,7 +169,6 @@ input {
     margin-left: 65px;
     gap: -9px;
     padding-right: 9px;
-    margin-top: 22px;
   }
 
   .logout {
