@@ -148,8 +148,13 @@ input {
 }
 
 @media (max-width: 768px) {
+
+  .offcanvas {
+    z-index: 999;
+  }
+
   .sidebar{
-    margin-top: 26px;
+    margin-top: 5px;
   }
   .mobilesrc {
     display: flex;
