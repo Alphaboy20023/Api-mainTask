@@ -12,7 +12,7 @@ function Sidebar(params) {
   return (
     <>
      <div className="d-flex">
-      <div className="sidebar bg-light mt-5" style={{ width: 'auto', height: '200vh', position: 'fixed' }}>
+      <div className="sidebar bg-light mt-5" style={{ width: '', height: '200vh'}}>
         <ul className="nav flex-column">
           <li className="nav-item">
             <NavLink className="nav-link fs-2 text-dark" to="/Home" aria-disabled>

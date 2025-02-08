@@ -15,7 +15,6 @@ export const logIn = createAsyncThunk('auth/logIn', async (credential, _) => {
     if (!response.ok) {
         // const errorData = await response.json();
         throw new Error({message:'please try again later!'});
-
     }
 
     const json = await response.json();
