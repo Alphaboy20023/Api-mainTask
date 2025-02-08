@@ -25,9 +25,9 @@ function Navbar(params) {
             <div className="d-flex justify-content-between ">
               <ul className="navbar-nav ms-lg-auto p-1">
                 <li className="nav-item dropdown">
-                  <NavLink className="nav-link dropdown-toggle mobilesrc fs-4 fw-semibold text-secondary" id="navbarDropdown" aria-current="page" data-bs-toggle="dropdown"
-                    to=""><FaUserCircle /> Hi, Victor
-                  </NavLink>
+                  <button className="nav-link dropdown-toggle mobilesrc fs-4 fw-semibold text-secondary" id="navbarDropdown" aria-current="page" data-bs-toggle="dropdown"
+                    ><FaUserCircle /> Hi, Victor
+                  </button>
                   <ul className="dropdown-menu border-0 bg-light fs-3" aria-labelledby="navbarDropdown">
                     <li>
                       <NavLink className="dropdown-item bg-light text-secondary  fs-2" to="#nogo">Profile</NavLink>

@@ -150,12 +150,9 @@ input {
 @media (max-width: 768px) {
 
   .offcanvas {
-    z-index: 999;
+    z-index: 999999;
   }
 
-  .sidebar{
-    margin-top: 5px;
-  }
   .mobilesrc {
     display: flex;
     flex-direction: column;
