@@ -99,7 +99,7 @@ function Home(params) {
 
   return (
     <div>
-      <Navbar />
+      <Navbar style={{width:"160vh"}} />
       <Sidebar />
       <div className="content">
         <div className="d-flex px-3 py-3 justify-content-between stubborn">
