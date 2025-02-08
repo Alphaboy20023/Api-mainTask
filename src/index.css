@@ -18,6 +18,7 @@ code {
 .sidebar{
   z-index: 999;
   position: fixed;
+  margin-top: 52px;
 }
 
 .content {
@@ -147,12 +148,9 @@ input {
 }
 
 @media (max-width: 768px) {
-.navbar{
-  margin-top: none !important;
-  padding-top: none !important;
-
-}
-
+  .sidebar{
+    margin-top: 26px;
+  }
   .mobilesrc {
     display: flex;
     flex-direction: column;
