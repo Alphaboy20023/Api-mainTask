@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #d2d4d4 !important;
+  height: 100vh;
+  padding: 0;
+  width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.sidebar{
+  z-index: 999;
+  position: fixed;
+}
+
+.content {
+  margin-left: 89px;
+  margin-top: 75px;
+  padding-right: 20px;
+  width: auto;
+}
+
+.onlythis {
+  margin-left: 70%;
+  margin-top: 20px;
+}
+
+.lgpage {
+  height: 100%;
+  width: 100%;
+}
+
+.newuser {
+  max-height: 50px;
+  max-width: auto;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.logout {
+  position: relative;
+  margin-top: 48vh !important;
+}
+
+.manpics {
+  background-image: url(./images/Model.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 80%;
+}
+
+.flex-row{
+  gap: 15px;
+  height: 100%;
+}
+
+.signuppage {
+gap: 15px;
+height: 100%;
+width: 100%;
+}
+
+.text-left{
+  width: 50%;
+}
+
+.control{
+  outline: none !important;
+  
+}
+
+.FiUser {
+  font-size: 20px;
+}
+
+.rowes {
+  gap: 8px;
+  display: flex;
+
+}
+
+.controls {
+  border-radius: 10px;
+  border: none;
+  padding: 11px;
+  outline: none !important;
+}
+
+.search {
+  border: 0;
+  outline: none;
+}
+
+.mobilesearch {
+  width: 40%;
+}
+
+.loginbox {
+  box-shadow: 3px 5px 12px rgba(0,0,0,0.2);
+  padding: 18px;
+  margin-top: 30px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+
+.form-control {
+  outline: #ffffff;
+  border: #ffffff;
+}
+
+
+.logindetails{
+  width: 100%;
+}
+
+.logincontent {
+  padding: 70px;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+.continuebtn {
+  background-color: green;
+  padding: 10px;
+  color: white;
+  width: 30%;
+}
+
+.valid {
+  color: #ffffff !important;
+  background-color: #2BDA53 !important;
+  border: none;
+  width: auto;
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+  .mobilesrc {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lgpage {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .manpics{
+    display: none;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 65px;
+    gap: -9px;
+    padding-right: 9px;
+  }
+
+  .logout {
+    margin-top: 90vh;
+    position: relative;
+  }
+
+  .form-position {
+    display: flex;
+  }
+
+  .loginbox{
+    width: 100%;
+  }
+
+  .newuser {
+    margin-left: 9vh auto;
+  
+  }
+
+  .logincontent {
+    padding-top: 40px;
+    padding: 30px;
+  }
+
+  .modal-content {
+    margin-top: 80px;
+  }
+
+  .changerole{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+.stubborn {
+  gap: 8px;
+}
+
+.mobilesearch {
+  width: auto;
+}
+
+
+
+}
