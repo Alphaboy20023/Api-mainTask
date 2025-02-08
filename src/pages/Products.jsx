@@ -3,7 +3,7 @@ import Navbar from "../components/navbar";
 import Sidebar from "../components/sidebar";
 import { NavLink } from "react-router-dom";
 import SearchBar from "../components/buttons";
-import { FaCircleChevronLeft, FaDeleteLeft } from "react-icons/fa6";
+import { FaCircleChevronLeft} from "react-icons/fa6";
 import { FaCircleChevronRight } from "react-icons/fa6";
 import ConfirmDelete from "../components/confirmdelete";
 
@@ -67,14 +67,14 @@ function Home(params) {
     setStores(UpdatedStores);
   }
 
-  function handleUpdate(index) {
-    const productToUpdate = stores[index];
-    setTitle(productToUpdate.title);
-    setPrice(productToUpdate.price);
-    setDescription(productToUpdate.description);
-    setCategory(productToUpdate.category);
-    setImage(productToUpdate.image);
-  }
+  // function handleUpdate(index) {
+  //   const productToUpdate = stores[index];
+  //   setTitle(productToUpdate.title);
+  //   setPrice(productToUpdate.price);
+  //   setDescription(productToUpdate.description);
+  //   setCategory(productToUpdate.category);
+  //   setImage(productToUpdate.image);
+  // }
 
   const handleSortChange = async (e) => {
     const criteria = e.target.value;

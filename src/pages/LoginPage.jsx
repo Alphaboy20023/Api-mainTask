@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FiUser } from "react-icons/fi";
-import { FaEyeSlash, FaAt, FaEye } from "react-icons/fa";
+import { FaAt, FaEye } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../redux/authSlice";

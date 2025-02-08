@@ -19,9 +19,7 @@
         const [zipcode, Setzipcode] = useState('');
         const [street, Setstreet] = useState('');
         const [geolocation, Setgeolocation] = useState('');
-        const [selectedUser, setselectedUser] = useState('');
         const [stores, setStores] = useState([]);
-        const [errorMessage, setErrorMessage] = useState('');
 
 
         function onChangefirstname(e) {
@@ -99,7 +97,6 @@
             Setstreet('');
             Setzipcode('');
             Setgeolocation('');
-            setErrorMessage('');
         }
 
         function handleDelete(index) {
