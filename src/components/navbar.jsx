@@ -10,7 +10,7 @@ import { CgLogOut } from "react-icons/cg";
 function Navbar(params) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light w-100 px-1" style={{ position: "fixed", zIndex: "999", height: "60px", }}>
+      <nav className="navbar navbar-expand-lg bg-light w-100 px-1" style={{ zIndex: "999", height: "60px", }}>
         <div className="container-fluid" >
           <NavLink className="navbar-brand text-secondary fs-3 py-2" to=""><span className="fw-semibold">Get</span>Change</NavLink>
           <button className="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
