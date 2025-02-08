@@ -6,7 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #d2d4d4 !important;
-  height: 100vh;
   padding: 0;
   width: 100%;
 }
@@ -148,6 +147,12 @@ input {
 }
 
 @media (max-width: 768px) {
+.navbar{
+  margin-top: none !important;
+  padding-top: none !important;
+
+}
+
   .mobilesrc {
     display: flex;
     flex-direction: column;
