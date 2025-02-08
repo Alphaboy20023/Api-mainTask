@@ -155,12 +155,13 @@ input {
 
   .offcanvas {
     z-index: 999999 !important;
-    width: 80%;
+    width: 70% !important;
   }
 
   .sidebar{
-    margin-top: none;
+    margin-top: -5px;
   }
+
   .mobilesrc {
     display: flex;
     flex-direction: column;
