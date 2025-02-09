@@ -13,8 +13,7 @@ export const logIn = createAsyncThunk('auth/logIn', async (credential, _) => {
     });
 
     if (!response.ok) {
-        // const errorData = await response.json();
-        throw new Error('please try again later!');
+        throw new Error('please Enter Correct Information');
     }
 
     const json = await response.json();
