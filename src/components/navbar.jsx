@@ -30,10 +30,10 @@ function Navbar(params) {
                   </button>
                   <ul className="dropdown-menu border-0 bg-light fs-3" aria-labelledby="navbarDropdown">
                     <li>
-                      <NavLink className="dropdown-item bg-light text-secondary  fs-2" to="#nogo">Profile</NavLink>
+                      <NavLink className="dropdown-item bg-light text-secondary  fs-2" to="">Profile</NavLink>
                     </li>
                     <li>
-                      <NavLink className="dropdown-item bg-light text-secondary fs-3" to="#nogo">Settings</NavLink>
+                      <NavLink className="dropdown-item bg-light text-secondary fs-3" to="">Settings</NavLink>
                     </li>
                     <li className="nav-item px-2">
                       <NavLink className="nav-link text-secondary" to="/"><CgLogOut />  LogOut

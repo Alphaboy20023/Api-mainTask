@@ -35,7 +35,7 @@ function LoginPage() {
       }
       if (status === 'failed') {
          setLoading(false);
-         alert('User Does Not Exist');
+         alert(error || 'Login failed. Please check your credentials');
       }
    }, [status, error, navigate]);
 

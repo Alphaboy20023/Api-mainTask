@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const logIn = createAsyncThunk('auth/logIn', async (credential, _) => {
-    const response = await fetch('https://fakestoreapi.com/auths/login', {
+    const response = await fetch('https://fakestoreapi.com/auth/login', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export const logIn = createAsyncThunk('auth/logIn', async (credential, _) => {
 
     if (!response.ok) {
         // const errorData = await response.json();
-        throw new Error({message:'please try again later!'});
+        throw new Error('please try again later!');
     }
 
     const json = await response.json();
