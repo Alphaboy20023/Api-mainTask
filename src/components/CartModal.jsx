@@ -1,20 +1,16 @@
 import React from "react";
 
 function cartModal({
-    id,
     userId,
     date,
     quantity,
     productId,
-    onchangeid,
     onchangequantity,
     onchangeuserId,
     onchangedate,
-    onchangeProductId,
+    onchangeProductid,
     handlesubmit
 }
-
-
 
 ) {
 
@@ -30,29 +26,25 @@ function cartModal({
                         <form onSubmit={handlesubmit}>
                             <div className="modal-body">
                                 <div className="mb-3">
-                                    <label htmlFor="idInput" className="form-label">Id</label>
-                                    <input type="text" onChange={onchangeid} value={id} className="form-control" id="idInput" placeholder="Product Identity" />
-                                </div>
-                                <div className="mb-3">
                                     <label htmlFor="UserIdInput" className="form-label">User Id</label>
-                                    <input type="text" onChange={onchangeuserId} value={userId} className="form-control" id="UseridInput" placeholder="User Identity" />
+                                    <input type="text" onChange={onchangeuserId} value={userId} className="form-control" placeholder="User Identity" />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="UserIdInput" className="form-label">Date</label>
-                                    <input type="date time" onChange={onchangedate} value={date} className="form-control" id="UseridInput" placeholder="Productdate" />
+                                    <label htmlFor="dateInput" className="form-label">Date</label>
+                                    <input type="datetime-local" onChange={onchangedate} value={date} className="form-control" placeholder="date" />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="UserIdInput" className="form-label">Quantity</label>
-                                    <input type="text" onChange={onchangequantity} value={quantity} className="form-control" id="UseridInput" placeholder="Quantity" />
+                                    <label htmlFor="" className="form-label">Quantity</label>
+                                    <input type="number" onChange={onchangequantity} value={quantity} className="form-control" placeholder="Quantity" />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="UserIdInput" className="form-label">Products</label>
-                                    <input type="text" onChange={onchangeProductId} value={productId} className="form-control" id="UseridInput" placeholder="ProductId" />
+                                    <label htmlFor="" className="form-label">Products</label>
+                                    <input type="number" onChange={onchangeProductid} value={productId} className="form-control" placeholder="ProductId" />
                                 </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary">Save changes</button>
+                                <button type="submit" className="btn btn-primary">Save changes</button>
                             </div>
                         </form>
                     </div>

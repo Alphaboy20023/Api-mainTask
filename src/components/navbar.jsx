@@ -36,7 +36,7 @@ function Navbar(params) {
                       <NavLink className="dropdown-item bg-light text-secondary fs-3" to="">Settings</NavLink>
                     </li>
                     <li className="nav-item px-2">
-                      <NavLink className="nav-link text-secondary" to="/"><CgLogOut />  LogOut
+                      <NavLink className="nav-link text-secondary" to="/LoginPage"><CgLogOut />  LogOut
                       </NavLink>
                     </li>
                   </ul>

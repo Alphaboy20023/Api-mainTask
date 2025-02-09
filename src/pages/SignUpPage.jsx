@@ -70,7 +70,7 @@ function SignUpPage(params) {
                </div>
                </div>
                <div className="col-12">
-                   <NavLink to="/Products" className="btn btn-success d-flex justify-content-center continuebtn ms-lg-auto" type="submit">Create Account</NavLink>
+                   <NavLink to="/" className="btn btn-success d-flex justify-content-center continuebtn ms-lg-auto" type="submit">Create Account</NavLink>
                </div>
                </div>
                </form>

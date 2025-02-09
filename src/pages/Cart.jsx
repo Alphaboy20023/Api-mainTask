@@ -29,7 +29,8 @@ function Cart(params) {
 
 
   function onchangequantity(e) {
-    setquantity(e.target.value);
+    const value = e.target.value
+    setquantity(value === '' ? '' :parseInt(value, 10) || '');
   }
 
   function onchangedate(e) {
@@ -43,21 +44,20 @@ function Cart(params) {
   function handlesubmit(e) {
     console.log('clicked')
     e.preventDefault();
-    if (!id || !userId || !date || !quantity || !ProductId) {
+    if ( !userId || !date || !quantity || !ProductId) {
       return;
     }
 
     const newCart = {
-      id,
+      id: stores.length + 1,
       userId,
       date,
-      products : {
-        ProductId : ProductId,
-        quantity : quantity
-      }
+      products : [{
+        quantity : quantity,
+        ProductId : ProductId
+    }]
     }
 
-    setid('');
     setuserId('');
     setquantity('');
     setdate('');
@@ -87,19 +87,18 @@ function Cart(params) {
 
         console.log("Fetched carts data:", json);
 
-        const formattedStores = json.flatMap(cart =>
-          (cart.products || []).map(product => ({
-            id: cart.id,
-            userid: cart.userId,
-            date: cart.date,
-            Productid: product.productId,
-            quantity: product.quantity ?? "N/A"
-          }))
-        );
-        setStores(prevStores => [...prevStores, ...formattedStores])
+        const formattedStores = json.map(cart =>({
+          id: cart.id,
+          userid: cart.userId,
+          date: cart.date,
+          products: Array.isArray(cart.products) ? cart.products.map(product => ({
+            productId: product.productId,
+            quantity: product.quantity,
+          })) : [],
+        }));
+        setStores(formattedStores)
       })
       .catch(err => console.error("Error fetching users:", err));
-    // console.log("Stores state:", stores);
 
   }, []);
 
@@ -107,7 +106,7 @@ function Cart(params) {
     setStores(prevStores => {
         return prevStores.map((cart, i) => {
             if (i === index) {
-                return { ...cart, ...updatedCartData }; // Create a *new* object with updated data
+                return { ...cart, ...updatedCartData };
             } else {
                 return cart;
             }
@@ -126,13 +125,13 @@ function Cart(params) {
           <h2>Cart</h2>
           <CartModal
             id={id}
-            Userid={userId}
-            Date={date}
-            Productquantity={quantity}
-            productid={ProductId}
+            UserId={userId}
+            date={date}
+            quantity={quantity}
+            productId={ProductId}
             onchangeProductid={onchangeproductId}
             onchangeid={onchangeid}
-            onchangeProductquantity={onchangequantity}
+            onchangequantity={onchangequantity}
             onchangeuserid={onchangeuserId}
             onchangedate={onchangedate}
             handlesubmit={handlesubmit}
@@ -168,9 +167,9 @@ function Cart(params) {
                 <th scope="col">Id</th>
                 <th scope="col">User Id</th>
                 <th scope="col">Product Date</th>
-                <th scope="col">Product Id</th>
-                <th scope="col">Product Quantity</th>
-                <th></th>
+                <th scope="col">Product </th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -180,8 +179,14 @@ function Cart(params) {
                   <td>{Cart.id}</td>
                   <td>{Cart.userid}</td>
                   <td>{Cart.date}</td>
-                  <td>{Cart.Productid}</td>
-                  <td>{Cart.quantity}</td>
+                  <td> {Cart.products.map((product, i) => (
+                        <div key={i}>ID: {product.productId}</div>
+                      ))}
+                      </td>
+                      <td> {Cart.products.map((product, i) => (
+                    <div key={i}>Qty: {product.quantity}</div>
+                  ))}
+                  </td>
                   <td>
                     <ConfirmDelete
                       handleDelete={handleDelete}
