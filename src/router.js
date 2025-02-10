@@ -11,9 +11,9 @@ function Navbarlinks(params) {
     return (
         <Router>
             <Routes>
-                <Route path="/LoginPage" element={<LoginPage />} />
+                <Route path="/" element={<LoginPage />} />
                 <Route path="/SignUpPage" element={<SignUpPage />} />
-                <Route path="/" element={<Products />} />
+                <Route path="/products" element={<Products />} />
                 <Route path="/Cart" element={<Cart />} />
                 <Route path="/User" element={<User />} />
             </Routes>
