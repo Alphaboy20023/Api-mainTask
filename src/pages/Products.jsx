@@ -226,7 +226,7 @@ function Home(params) {
                     <td>${product.price}</td>
                     <td>{product.category}</td>
                     <td>{product.description}</td>
-                    <td>{product.image}</td>
+                    <td><img src={product.image} alt={product.title} style={{width:'50px'}} /></td>
                     <td className="d-flex bg-white">
                       <ConfirmDelete
                         handleDelete={handleDelete}
