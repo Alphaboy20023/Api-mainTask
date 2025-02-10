@@ -19,7 +19,7 @@ function Sidebar(params) {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link fs-2 text-secondary" to="/">
+            <NavLink className="nav-link fs-2 text-secondary" to="/products">
               <MdDashboardCustomize />
             </NavLink>
           </li>
