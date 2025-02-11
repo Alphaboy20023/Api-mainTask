@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import Sidebar from "../components/sidebar";
 import SearchBar from "../components/buttons";
-import { FaCircleChevronLeft} from "react-icons/fa6";
+import { FaCircleChevronLeft } from "react-icons/fa6";
 import { FaCircleChevronRight } from "react-icons/fa6";
 import ConfirmDelete from "../components/confirmdelete";
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProductById, fetchProductsByCategory } from "../redux/productSlice";
+import UpdateProduct from "../components/updateProduct";
 
 function Home(params) {
   const [title, setTitle] = useState('');
@@ -14,9 +17,8 @@ function Home(params) {
   const [image, setImage] = useState('');
   const [stores, setStores] = useState([]);
   const [selectedCriteria, setSelectedCriteria] = useState('');
-  // const [sortCriteria, setSortCriteria] = useState()
-  const [sortedStores, setSortedStores] = useState([]);
-  const [visibleColumn, setVisibleColumn] = useState([]);
+  const [filteredStores, setFilteredStores] = useState([])
+  const [searchTerm, setSearchTerm] = useState('');
 
   function onChangeTitle(e) {
     setTitle(e.target.value);
@@ -48,9 +50,6 @@ function Home(params) {
       .then(res => res.json())
       .then(json => {
         setStores(json);
-        setSortedStores(json);
-        setVisibleColumn('');
-         // Store fetched users in state
       })
       .catch(err => console.error("Error fetching users:", err));
   }, []);
@@ -79,37 +78,59 @@ function Home(params) {
   //   setImage(productToUpdate.image);
   // }
 
+  const dispatch = useDispatch();
+  const { items, loading, currentCategory } = useSelector((state) => state.products);
 
+
+  // Fetch a product by ID when the component mounts (for demonstration)
+  useEffect(() => {
+    dispatch(fetchProductById(1));
+  }, [dispatch]);
+
+
+
+  // handle search input change
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  }
+
+
+  // Fetch products when category changes
+  useEffect(() => {
+    dispatch(fetchProductsByCategory(currentCategory));
+  }, [currentCategory, dispatch]);
+
+
+  // updates filteredStores whenever page reloads
+  useEffect(() => {
+      setFilteredStores(items);
+  }, [items])
+
+
+  // selects a criteria/product in the select dropdown
   const handleSelectChange = (e) => {
     setSelectedCriteria(e.target.value)
   }
 
-
-  const handleSortChange = async (e) => {
-
-      if (selectedCriteria === "all") {
-        setSortedStores(stores);
-        setVisibleColumn("");
-        return;
-      }
-
-    setVisibleColumn(selectedCriteria);
+  const filteredResults = items.filter(product => {
+    const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLocaleLowerCase());
+    const matchesCategory = selectedCriteria === "all" || product.category === selectedCriteria;
+    return matchesSearch && matchesCategory;
+  });
+    // filteredResults();
 
 
-    if ( stores.length > 0) {
-
-      const sortedData = [...stores].sort((a, b) => {
-        if (selectedCriteria === 'title') return a.title.localeCompare(b.title);
-        if (selectedCriteria === 'category') return a.category.localeCompare(b.category)
-        if (selectedCriteria === 'price') return a.price - b.price;
-        return 0;
-      });
-
-      console.log("Sorted Data:", sortedData)
-
-      setSortedStores(sortedData);
-    } 
+  // sorts  the table by selected criteria
+  const handleSortChange = () => {
+    if (selectedCriteria === "all") {
+      setFilteredStores(items);
+    } else {
+      const filtered = items.filter(product => product.category === selectedCriteria);
+      setFilteredStores(filtered);
+    }
   }
+
+
 
   return (
     <div>
@@ -175,13 +196,17 @@ function Home(params) {
                 onChange={handleSelectChange}
               >
                 <option value="all">See All</option>
-                <option value="title">Title</option>
-                <option value="price">Price</option>
-                <option value="category">Category</option>
+                <option value="jewelery">Jewelry</option>
+                <option value="women's clothing">Women's clothing</option>
+                <option value="men's clothing">Men's Clothing</option>
+                <option value="electronics">Electronics</option>
               </select>
             </div>
-            <button className="btn border-0 valid" onClick={handleSortChange} >Change</button>
-            <SearchBar className="w-100" />
+            <button className="btn border-0 valid" onClick={handleSortChange} disabled={loading}>
+              Change
+            </button>
+
+            <SearchBar className="w-100" value={searchTerm} onChange={handleSearchChange} />
           </div>
           <nav aria-label="Page navigation">
             <ul className="pagination">
@@ -196,56 +221,47 @@ function Home(params) {
         </div>
 
         <div className="w-100">
-          {sortedStores.length > 0 && (
-            <table className="table border-radius-2 table-transparent w-100">
+          {loading ? (
+            <p>Loading...</p>
+            ) : (
+              <table className="table border-radius-2 table-transparent w-100">
               <thead>
                 <tr className="table-rw">
-                  {visibleColumn === "" && (
-                    <>
-                      <th scope="col">#</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Description</th>
-                      <th scope="col">Image</th>
-                      <th scope="col">Action</th>
-                    </>
-                  )}
-                  {visibleColumn === "title" && <th scope="col">Title</th>}
-                  {visibleColumn === "price" && <th scope="col">Price</th>}
-                  {visibleColumn === "category" && <th scope="col">Category</th>}
+                  <th scope="col">#</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {sortedStores.map((product, index) =>
+                {filteredStores.map((product, index) =>
                   <tr key={product.id}>
-                   {visibleColumn === "" && (
-                    <>
-                       <td>{index + 1}</td>
+                    <td>{index + 1}</td>
                     <td>{product.title}</td>
                     <td>${product.price}</td>
                     <td>{product.category}</td>
                     <td>{product.description}</td>
-                    <td><img src={product.image} alt={product.title} style={{width:'50px'}} /></td>
+                    <td><img src={product.image} alt={product.title} style={{ width: '50px' }} /></td>
                     <td className="d-flex bg-white">
                       <ConfirmDelete
                         handleDelete={handleDelete}
                         index={index}
                       />
-                      <button className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Update Product
-                      </button>
+                       <UpdateProduct
+                      // product={product}
+                      // handleProductUpdate={handleProductUpdate}
+                      // index={index} 
+                    />
                     </td>
-                    </>
-                   )}
-                   {visibleColumn === "title" && <td>{product.title}</td>}
-                   {visibleColumn === "price" && <td>${product.price}</td>}
-                   {visibleColumn === "category" && <td>${product.category}</td>}
                   </tr>
                 )}
               </tbody>
             </table>
           )}
+          
         </div>
       </div>
     </div>

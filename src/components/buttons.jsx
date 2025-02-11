@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaSearch } from 'react-icons/fa'; // Import the search icon from Font Awesome
 
-const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-
+const SearchBar = ({value, onChange}) => {
     const handleSearch = (e) => {
         e.preventDefault();
         // Implement your search logic here
-        console.log('Searching for:', searchTerm);
+        console.log('Searching for:');
     };
 
     return (
@@ -18,8 +16,8 @@ const SearchBar = () => {
                     className="form-control controls"
                     placeholder="Enter title of product here"
                     aria-label="Search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    value={value}
+                    onChange={onChange}
                     style={{ borderRadius: '0.5rem' }}
                 />
                 <button className="btn d-inline-flex" type="submit">
