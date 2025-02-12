@@ -237,7 +237,7 @@ function Home(params) {
                 </tr>
               </thead>
               <tbody>
-                {filteredStores && filteredResults.map((product, index) =>
+                {filteredResults && filteredStores.map((product, index) =>
                   <tr key={product.id}>
                     <td>{index + 1}</td>
                     <td>{product.title}</td>
