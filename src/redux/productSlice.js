@@ -30,13 +30,35 @@ export const fetchProductById = createAsyncThunk (
     }
 )
 
+ export const updateProduct = createAsyncThunk(
+    "product/updatedProduct",
+    async(updatedProduct, {rejectWithValue}) => {
+        try {
+            const response = await fetch(`https://fakestoreapi.com/products/${updatedProduct.id}`,{
+                method: "PUT",
+                headers: {
+                    "content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedProduct),
+            });
+            if (!response.ok) {
+                throw new Error ("Failed to Update Product");
+            }
+            return await response.json();
+        } catch(error) {
+            return rejectWithValue(error.message);
+        } }
+    )
+
 
 const productsSlice = createSlice({
     name:'products',
     initialState:{
         items: [],
+        product: {},
         loading: false,
         error:null,
+        status: "idle",
         currentCategory: 'all',
         selectedProduct:null,
     },
@@ -46,6 +68,9 @@ const productsSlice = createSlice({
         },
         setSelectedProduct: (state, action) => {
             state.selectedProduct = action.payload;
+        },
+        setUpdatedProduct: (state, action) => {
+            state.updatedProduct = action.payload
         }
     },
     
@@ -77,8 +102,12 @@ const productsSlice = createSlice({
             state.loading = false;
             state.error = action.error.message; 
         })
+       
     },
 });
 
-export const {setCurrentCategory, setSelectedProduct} = productsSlice.actions;
+
+
+
+export const {setCurrentCategory, setSelectedProduct, selectProduct, } = productsSlice.actions;
 export default productsSlice.reducer

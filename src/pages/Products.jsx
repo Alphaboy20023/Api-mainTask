@@ -7,7 +7,7 @@ import { FaCircleChevronRight } from "react-icons/fa6";
 import ConfirmDelete from "../components/confirmdelete";
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProductById, fetchProductsByCategory } from "../redux/productSlice";
-import UpdateProduct from "../components/updateProduct";
+
 
 function Home(params) {
   const [title, setTitle] = useState('');
@@ -70,12 +70,12 @@ function Home(params) {
   }
 
   // function handleUpdate(index) {
-  //   const productToUpdate = stores[index];
-  //   setTitle(productToUpdate.title);
-  //   setPrice(productToUpdate.price);
-  //   setDescription(productToUpdate.description);
-  //   setCategory(productToUpdate.category);
-  //   setImage(productToUpdate.image);
+  //   // const productToUpdate = stores[index];
+  //   // setTitle(productToUpdate.title);
+  //   // setPrice(productToUpdate.price);
+  //   // setDescription(productToUpdate.description);
+  //   // setCategory(productToUpdate.category);
+  //   // setImage(productToUpdate.image);
   // }
 
   const dispatch = useDispatch();
@@ -250,11 +250,11 @@ function Home(params) {
                         handleDelete={handleDelete}
                         index={index}
                       />
-                       <UpdateProduct
-                      // product={product}
-                      // handleProductUpdate={handleProductUpdate}
-                      // index={index} 
-                    />
+                       {/* <UpdateProduct */}
+                      {/* // product={selectProduct} */}
+                      {/* index={index}  */}
+                      {/* handleUpdate = {handleUpdate} */}
+                    {/* /> */}
                     </td>
                   </tr>
                 )}
