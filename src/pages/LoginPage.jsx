@@ -4,6 +4,7 @@ import { FaAt, FaEye } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../redux/authSlice";
+import Carousels from "../components/carousel";
 
 function LoginPage() {
    const navigate = useNavigate();
@@ -42,8 +43,10 @@ function LoginPage() {
    return (
       <>
          <div className="d-flex lgpage border-3">
-            <div className="bg-light d-flex signuppage">
-               <div className="manpics"></div>
+            <div className=" d-flex signuppage">
+               <div className="manpics">
+                  <Carousels />
+               </div>
                <div className="bg-light logindetails">
                   <div className="logincontent">
                      <h1 className="fs-2">Login</h1>

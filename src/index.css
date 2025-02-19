@@ -34,8 +34,9 @@ code {
 }
 
 .lgpage {
-  height: 100%;
+  height: 95vh !important;
   width: 100%;
+  background-color: #ffffff;
 }
 
 .newuser {
@@ -51,11 +52,17 @@ code {
   margin-top: 48vh !important;
 }
 
+
+
 .manpics {
-  background-image: url(./images/Model.jpg);
+  /* background-image: url(./images/Model.jpg); */
   background-size: cover;
+  display: flex;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  width: 80%;
+  width: 100%;
 }
 
 .flex-row{
@@ -64,7 +71,7 @@ code {
 }
 
 .signuppage {
-gap: 15px;
+/* gap: 15px; */
 height: 100%;
 width: 100%;
 }
@@ -121,11 +128,13 @@ width: 100%;
 
 .logindetails{
   width: 100%;
+  height: 100vh;
 }
 
 .logincontent {
-  padding: 70px;
+  padding: 65px;
   width: 100%;
+  background-color: #ffffff;
 }
 
 input {

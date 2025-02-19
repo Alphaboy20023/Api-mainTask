@@ -5,6 +5,7 @@ import { FiUser } from "react-icons/fi";
 import { FaAt } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
 import { useState } from "react";
+import Carousels from "../components/carousel";
 
 
 function SignUpPage(params) {
@@ -30,7 +31,9 @@ function SignUpPage(params) {
        <>
          <div className="d-flex lgpage border-3">
            <div className="bg-light d-flex signuppage">
-           <div className="manpics"></div>
+           <div className="manpics">
+           <Carousels />
+           </div>
             <div className="bg-light logindetails">
                <div className=" logincontent">
                <h1 className="fs-2">Create Your free account</h1>
