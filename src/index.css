@@ -7,7 +7,8 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #d2d4d4 !important;
   padding: 0;
-  width: 100%;
+
+  
 }
 
 code {
@@ -16,16 +17,44 @@ code {
 }
 
 .sidebar{
-  z-index: 999;
-  position: fixed;
-  margin-top: 52px;
+  /* z-index: 999; */
+  width: 37px;
+  display: flex;
+  justify-content: right;
+}
+
+.productPage{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.table-transparent{
+  width: 90% !important;
+}
+
+.wholePage{
+  display: flex;
+  flex-direction: row;
+  gap: 30px !important;
+  justify-content: center;
 }
 
 .content {
-  margin-left: 89px;
-  margin-top: 70px;
-  padding-right: 20px;
+  margin-right: auto;
+  margin-top: 60px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around !important;
+}
+
+.card{
+  width: 92%;
 }
 
 .onlythis {
@@ -41,10 +70,9 @@ code {
 
 .newuser {
   max-height: 50px;
-  width: 110vh;
+  width: 90vh;
   padding: 15px;
-  display: flex;
-  align-items: center;
+  margin-left: 70%;
 }
 
 .logout {
@@ -189,10 +217,7 @@ input {
   .content {
     display: flex;
     flex-direction: column;
-    margin-left: 65px;
-    gap: -9px;
-    padding-right: 9px;
-    width: 100%;
+    /* width: 0%; */
   }
 
   .logout {

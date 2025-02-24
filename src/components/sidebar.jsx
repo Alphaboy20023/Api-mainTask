@@ -11,8 +11,8 @@ import { TiShoppingCart } from "react-icons/ti";
 function Sidebar(params) {
   return (
     <>
-     <div className="d-flex">
-      <div className="sidebar bg-light" style={{ width: '59px', height: '200vh', position:"fixed"}}>
+     <div className="d-flex sidebar mt-5">
+      <div className="side bg-light" style={{ height: '200vh', position:"fixed"}}>
         <ul className="nav flex-column">
           <li className="nav-item">
             <NavLink className="nav-link fs-2 text-dark" to="/Home" aria-disabled>

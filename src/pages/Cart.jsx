@@ -120,7 +120,7 @@ function Cart(params) {
       <Navbar />
       <Sidebar />
 
-      <div className="content py-3">
+      <div className="content">
         <div className="d-flex justify-content-between stubborn">
           <h2>Cart</h2>
           <CartModal

@@ -135,7 +135,7 @@
             <>
                 <Navbar />
                 <Sidebar />
-                <div className="content py-3 ">
+                <div className="content">
                     <div className="d-flex justify-content-between stubborn">
                         <h2>Users</h2>
                         <button type="button" className=" mb-2 text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">

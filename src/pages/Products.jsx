@@ -103,7 +103,7 @@ function Home(params) {
 
   // updates filteredStores whenever page reloads
   useEffect(() => {
-      setFilteredStores(items);
+    setFilteredStores(items);
   }, [items])
 
 
@@ -117,7 +117,7 @@ function Home(params) {
     const matchesCategory = selectedCriteria === "all" || product.category === selectedCriteria;
     return matchesSearch && matchesCategory;
   });
-    // filteredResults();
+  // filteredResults();
 
 
   // sorts  the table by selected criteria
@@ -133,16 +133,17 @@ function Home(params) {
 
 
   return (
-    <div>
+    <div className="productPage">
       <Navbar />
-      <Sidebar />
+      <div className="wholePage">
+         <Sidebar /> 
       <div className="content">
-        <div className="d-flex px-3 py-3 justify-content-between stubborn">
+        <div className="d-flex  py-3  stubborn">
           <h2>Products</h2>
+          <button type="submit" className="text-light border-0 btn valid newuser" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add New Product
+          </button>
           <>
-            <button type="button" className="text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Add New Product
-            </button>
             <div className="modal fade text-dark" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog">
                 <div className="modal-content text-start">
@@ -188,7 +189,7 @@ function Home(params) {
             <p className="fs-6">62, Bode Thomas, Surulere, Lagos</p>
           </div>
         </div>
-        <div className="d-flex flex-row align-items-center justify-content-between changerole py-3">
+        <div className="d-flex flex-row align-items-center  changerole py-3">
           <div className="d-flex flex-row w-75 changerole">
             <div className="gaps">
               <select className="form-select d-inline-block w-auto
@@ -206,7 +207,7 @@ function Home(params) {
               Change
             </button>
 
-            <SearchBar className="w-100" value={searchTerm} onChange={handleSearchChange} />
+            <SearchBar className="w-50" value={searchTerm} onChange={handleSearchChange} />
           </div>
           <nav aria-label="Page navigation">
             <ul className="pagination">
@@ -220,11 +221,11 @@ function Home(params) {
           </nav>
         </div>
 
-        <div className="w-100">
+        <div>
           {loading ? (
             <p>Loading...</p>
-            ) : (
-              <table className="table border-radius-2 table-transparent w-100">
+          ) : (
+            <table className="table border-radius-2 table-transparent">
               <thead>
                 <tr className="table-rw">
                   <th scope="col">#</th>
@@ -250,21 +251,22 @@ function Home(params) {
                         handleDelete={handleDelete}
                         index={index}
                       />
-                       {/* <UpdateProduct */}
+                      {/* <UpdateProduct */}
                       {/* // product={selectProduct} */}
                       {/* index={index}  */}
                       {/* handleUpdate = {handleUpdate} */}
-                    {/* /> */}
+                      {/* /> */}
                     </td>
                   </tr>
                 )}
               </tbody>
             </table>
           )}
-          
+
         </div>
       </div>
     </div>
+    </div >
   );
 }
 
