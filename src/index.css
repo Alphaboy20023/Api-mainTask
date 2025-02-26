@@ -40,14 +40,15 @@ code {
 .wholePage{
   display: flex;
   flex-direction: row;
-  gap: 30px !important;
-  justify-content: center;
+  gap: 50px !important;
+  margin-right: auto;
+  position: relative;
+  top: 20px;
 }
 
 .content {
-  margin-right: auto;
   margin-top: 60px;
-  width: 100%;
+  width: 191vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around !important;
@@ -70,9 +71,7 @@ code {
 
 .newuser {
   max-height: 50px;
-  width: 90vh;
-  padding: 15px;
-  margin-left: 70%;
+  /* padding: 15px; */
 }
 
 .logout {
@@ -176,6 +175,14 @@ input {
   width: 30%;
 }
 
+.valid1 {
+  color: #ffffff !important;
+  background-color: #2BDA53 !important;
+  border: none;
+  width: auto;
+  height: 40px;
+}
+
 .valid {
   color: #ffffff !important;
   background-color: #2BDA53 !important;
@@ -188,7 +195,7 @@ input {
    width: 80%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
 
   .offcanvas {
     z-index: 999999 !important;
@@ -196,7 +203,17 @@ input {
   }
 
   .sidebar{
-    margin-top: -5px;
+    margin-right: -5px auto;
+    display: flex;
+    position: relative;
+    left: -9px;
+  }
+
+  .valid1{
+    width: 150px;
+    display: flex;
+    position: relative;
+    /* justify-self: right; */
   }
 
   .mobilesrc {
@@ -216,9 +233,37 @@ input {
 
   .content {
     display: flex;
-    flex-direction: column;
-    /* width: 0%; */
+    width: 77%;
+    position: relative;
+    right: 50px; 
+    gap: 10px;
   }
+
+  .wholePage {
+    gap: none;
+    margin-right: none;
+    width: 80%;
+    position: relative;
+    
+  }
+
+  .card {
+    width: 36vh;
+  }
+
+  .card-body {
+    gap: 30px;
+  }
+
+  
+.productPage{
+  display: flex;
+  flex-direction: none;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+
+}
 
   .logout {
     margin-top: 90vh;
@@ -231,11 +276,6 @@ input {
 
   .loginbox{
     width: 100%;
-  }
-
-  .newuser {
-    margin-left: 9vh auto;
-  
   }
 
   .logincontent {
@@ -252,14 +292,36 @@ input {
     width: 100%;
   }
 
-.stubborn {
-  gap: 8px;
+
+.pageword {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between !important;
+}
+
+.product {
+  position: relative;
+  left: 5vh;
 }
 
 .mobilesearch {
   width: auto;
 }
 
+.table-transparent {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.card {
+  width: 100%;
+}
 
+}
+
+@media (max-width: 400px) {
+  .product {
+    position: relative;
+    left: 2px;
+  }
 }
