@@ -240,9 +240,7 @@ input {
     gap: 10px;
   }
 
-  .content{
-    position: fixed;
-  }
+  
 
   .wholePage {
     gap: none;
