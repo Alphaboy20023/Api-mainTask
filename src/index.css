@@ -207,6 +207,7 @@ input {
     display: flex;
     position: relative;
     left: -9px;
+    z-index: 999;
   }
 
   .valid1{
@@ -235,8 +236,12 @@ input {
     display: flex;
     width: 77%;
     position: relative;
-    right: 50px; 
+    right: 30px; 
     gap: 10px;
+  }
+
+  .content{
+    position: fixed;
   }
 
   .wholePage {
@@ -301,7 +306,7 @@ input {
 
 .product {
   position: relative;
-  left: 5vh;
+  left: 2vh;
 }
 
 .mobilesearch {
