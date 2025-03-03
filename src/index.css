@@ -212,10 +212,9 @@ input {
   }
 
   .valid1{
-    width: 150px;
-    display: flex;
+    width: 178px;
     position: relative;
-    /* justify-self: right; */
+    flex-wrap: nowrap;
   }
 
   .mobilesrc {
@@ -235,7 +234,7 @@ input {
 
   .content {
     display: flex;
-    width: 79%;
+    width: 80%;
     position: relative;
     right: 40px; 
     gap: 10px;
