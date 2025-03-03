@@ -18,9 +18,10 @@ code {
 
 .sidebar{
   /* z-index: 999; */
-  width: 37px;
+  width: 36px;
   display: flex;
   justify-content: right;
+  margin-left: -12px;
 }
 
 .productPage{
@@ -203,10 +204,10 @@ input {
   }
 
   .sidebar{
-    margin-right: -5px auto;
+    margin-right: auto;
     display: flex;
     position: relative;
-    left: -9px;
+    left: 1px;
     z-index: 999;
   }
 
@@ -234,9 +235,9 @@ input {
 
   .content {
     display: flex;
-    width: 77%;
+    width: 79%;
     position: relative;
-    right: 30px; 
+    right: 40px; 
     gap: 10px;
   }
 
@@ -298,13 +299,13 @@ input {
 
 .pageword {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between !important;
 }
 
 .product {
   position: relative;
-  left: 2vh;
+  left: 1vh;
 }
 
 .mobilesearch {
@@ -322,6 +323,6 @@ input {
 @media (max-width: 400px) {
   .product {
     position: relative;
-    left: 2px;
+    left: 1px;
   }
 }

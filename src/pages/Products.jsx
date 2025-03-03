@@ -146,7 +146,6 @@ function Home(params) {
                   Add New Product
                 </button>
               </div>
-
             </div>
             <>
               <div className="modal fade text-dark" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
