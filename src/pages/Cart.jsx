@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from '../components/navbar'
 import Sidebar from "../components/sidebar";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import SearchBar from "../components/buttons";
 import { useState, useEffect } from "react";
 import CartModal from "../components/CartModal"
