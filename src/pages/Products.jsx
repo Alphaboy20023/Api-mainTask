@@ -193,8 +193,8 @@ function Home(params) {
               <p className="fs-6">62, Bode Thomas, Surulere, Lagos</p>
             </div>
           </div>
-          <div className="d-flex flex-row align-items-center  changerole py-3">
-            <div className="d-flex flex-row w-75 changerole">
+          <div className="d-flex flex-row align-items-center   changerole py-3">
+            <div className="d-flex flex-row  w-auto changerole">
               <div className="gaps">
                 <select className="form-select d-inline-block w-auto
                "value={selectedCriteria}
@@ -225,7 +225,7 @@ function Home(params) {
             </nav> */}
           </div>
 
-          <div>
+          <div className="">
             {loading ? (
               <p>Loading...</p>
             ) : (

@@ -30,7 +30,7 @@ function Cart(params) {
 
   function onchangequantity(e) {
     const value = e.target.value
-    setquantity(value === '' ? '' :parseInt(value, 10) || '');
+    setquantity(value === '' ? '' : parseInt(value, 10) || '');
   }
 
   function onchangedate(e) {
@@ -44,7 +44,7 @@ function Cart(params) {
   function handlesubmit(e) {
     console.log('clicked')
     e.preventDefault();
-    if ( !userId || !date || !quantity || !ProductId) {
+    if (!userId || !date || !quantity || !ProductId) {
       return;
     }
 
@@ -52,10 +52,10 @@ function Cart(params) {
       id: stores.length + 1,
       userId,
       date,
-      products : [{
-        quantity : quantity,
-        ProductId : ProductId
-    }]
+      products: [{
+        quantity: quantity,
+        ProductId: ProductId
+      }]
     }
 
     setuserId('');
@@ -87,7 +87,7 @@ function Cart(params) {
 
         console.log("Fetched carts data:", json);
 
-        const formattedStores = json.map(cart =>({
+        const formattedStores = json.map(cart => ({
           id: cart.id,
           userid: cart.userId,
           date: cart.date,
@@ -104,116 +104,126 @@ function Cart(params) {
 
   const handleCartUpdate = (index, updatedCartData) => {
     setStores(prevStores => {
-        return prevStores.map((cart, i) => {
-            if (i === index) {
-                return { ...cart, ...updatedCartData };
-            } else {
-                return cart;
-            }
-        });
+      return prevStores.map((cart, i) => {
+        if (i === index) {
+          return { ...cart, ...updatedCartData };
+        } else {
+          return cart;
+        }
+      });
     });
-};
+  };
 
 
   return (
     <>
-    <div className="productPage">
-      <Navbar />
-    <div className="wholePage">
-      <Sidebar />
-      <div className="content">
-        <div className="py-3">
-        <div className="d-flex justify-content-between stubborn">
-          <h2>Cart</h2>
-          <CartModal
-            id={id}
-            UserId={userId}
-            date={date}
-            quantity={quantity}
-            productId={ProductId}
-            onchangeProductid={onchangeproductId}
-            onchangeid={onchangeid}
-            onchangequantity={onchangequantity}
-            onchangeuserid={onchangeuserId}
-            onchangedate={onchangedate}
-            handlesubmit={handlesubmit}
-          />
-          <button type="button" className="mb-2 text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add to Cart
-          </button>
-        </div>
-        </div>
-        <div className="card bg-light">
-          <div className="card-body d-flex d-inline-flex justify-content-between align-items-center">
-            <h3 className="bold"> Josh Bakery Ventures</h3>
-            <p className="fs-6">62, Bode Thomas, Surulere, Lagos</p>
-          </div>
-        </div>
-        <div className=" align-items-center justify-content-between changerole  py-3">
-          <div className="d-flex w-75 py-3 changerole">
-            <div className=" gaps">
-              <select className="form-select d-inline-block w-auto" defaultValue="" >
-                <option defaultValue={''}>Change Role</option>
-                <option value="1">Admin</option>
-                <option value="2">Staff</option>
-                <option value="3">Manager</option>
-              </select>
+      <div className="productPage">
+        <Navbar />
+        <div className="wholePage">
+          <Sidebar />
+          <div className="content">
+            <div className="py-3">
+              <div className="d-flex justify-content-between stubborn">
+                <h2>Cart</h2>
+                <CartModal
+                  id={id}
+                  UserId={userId}
+                  date={date}
+                  quantity={quantity}
+                  productId={ProductId}
+                  onchangeProductid={onchangeproductId}
+                  onchangeid={onchangeid}
+                  onchangequantity={onchangequantity}
+                  onchangeuserid={onchangeuserId}
+                  onchangedate={onchangedate}
+                  handlesubmit={handlesubmit}
+                />
+                <button type="button" className="mb-2 text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Add to Cart
+                </button>
+              </div>
             </div>
-            <NavLink className="btn border-0 valid me-3 ms-3" to="">Change</NavLink>
-            <SearchBar className="w-100" />
-          </div>
+            <div className="card bg-light">
+              <div className="card-body d-flex d-inline-flex justify-content-between align-items-center">
+                <h3 className="bold"> Josh Bakery Ventures</h3>
+                <p className="fs-6">62, Bode Thomas, Surulere, Lagos</p>
+              </div>
+            </div>
+            <div className="d-flex flex-column  py-3">
+              <div className="d-flex flex-row  align-items-center justify-content-between changerole">
+              <div className="d-flex flex-row wrapper">
+                <div className="my-1">
+                  <select className="form-select d-inline-block w-auto" defaultValue="" >
+                    <option defaultValue={''}>Change Role</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Staff</option>
+                    <option value="3">Manager</option>
+                  </select>
+                </div>
+                <div className="my-1">
+                <button className="btn border-0 valid" to="">
+                  Change
+                </button>
+                </div>
+                <div className="my-1">
+                <SearchBar className="w-100" />
+                </div>
+              </div>
+              </div>
 
-          {stores.length > 0 && <table className="table table-secondary table-hover bg-transparent w-100">
-            <thead>
-              <tr className="table-rw">
-                <th scope="col">#</th>
-                <th scope="col">Id</th>
-                <th scope="col">User Id</th>
-                <th scope="col">Product Date</th>
-                <th scope="col">Product </th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stores.map((Cart, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{Cart.id}</td>
-                  <td>{Cart.userid}</td>
-                  <td>{Cart.date}</td>
-                  <td> {Cart.products.map((product, i) => (
+              <div className="mt-4">
+              {stores.length > 0 && <table className="table table-secondary table-hover bg-transparent w-100">
+                <thead>
+                  <tr className="table-rw">
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">User Id</th>
+                    <th scope="col">Product Date</th>
+                    <th scope="col">Product </th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {stores.map((Cart, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{Cart.id}</td>
+                      <td>{Cart.userid}</td>
+                      <td>{Cart.date}</td>
+                      <td> {Cart.products.map((product, i) => (
                         <div key={i}>ID: {product.productId}</div>
                       ))}
                       </td>
                       <td> {Cart.products.map((product, i) => (
-                    <div key={i}>Qty: {product.quantity}</div>
+                        <div key={i}>Qty: {product.quantity}</div>
+                      ))}
+                      </td>
+                      <td>
+                        <ConfirmDelete
+                          handleDelete={handleDelete}
+                          index={index}
+                        />
+                        <UpdateCart
+                          cart={Cart}
+                          handleCartUpdate={handleCartUpdate}
+                          index={index}
+                        />
+                      </td>
+                    </tr>
                   ))}
-                  </td>
-                  <td>
-                    <ConfirmDelete
-                      handleDelete={handleDelete}
-                      index={index}
-                    />
-                    <UpdateCart 
-                      cart={Cart}
-                      handleCartUpdate={handleCartUpdate}
-                      index={index} 
-                    />
-                  </td>
-                </tr>
-              ))}
 
-            </tbody>
-          </table>
-          }
+                </tbody>
+              </table>
+              }
+              </div>
 
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
 
-     
+
     </>
   )
 };

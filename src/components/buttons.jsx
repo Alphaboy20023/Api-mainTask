@@ -10,7 +10,7 @@ const SearchBar = ({value, onChange}) => {
 
     return (
         <form onSubmit={handleSearch} className=" mobilesearch">
-            <div className="input-group d-flex justify-content-center">
+            <div className="input-group d-inline-flex d-flex justify-content-center">
                 <input
                     type="search"
                     className="form-control controls"
@@ -20,7 +20,7 @@ const SearchBar = ({value, onChange}) => {
                     onChange={onChange}
                     style={{ borderRadius: '0.5rem' }}
                 />
-                <button className="btn d-inline-flex" type="submit">
+                <button className="btn searchbtn" type="submit">
                     <FaSearch className='text-secondary border-0  d-inline-flex search' />
                 </button>
             </div>

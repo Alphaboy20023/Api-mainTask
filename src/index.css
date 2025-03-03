@@ -49,10 +49,13 @@ code {
 
 .content {
   margin-top: 60px;
-  width: 191vh;
+  width: 188vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around !important;
+  position: relative;
+  left: 20px fixed;
+  overflow: hidden;
 }
 
 .card{
@@ -135,8 +138,18 @@ width: 100%;
   outline: none;
 }
 
+
+
+
 .mobilesearch {
-  width: 40%;
+  width: 400px;
+}
+
+
+
+.searchbtn {
+  position: relative;
+  right: 40px;
 }
 
 .loginbox {
@@ -196,6 +209,10 @@ input {
    width: 80%;
 }
 
+.changerole {
+  width: 1500px;
+}
+
 @media (max-width: 820px) {
 
   .offcanvas {
@@ -246,7 +263,9 @@ input {
     gap: 10px;
   }
 
-  
+  .wrapper {
+    flex-wrap: wrap;
+  }
 
   .wholePage {
     gap: none;
