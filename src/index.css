@@ -17,11 +17,11 @@ code {
 }
 
 .sidebar{
-  /* z-index: 999; */
+  z-index: 999;
   width: 42px;
   display: flex;
   justify-content: right;
-  margin-left: -15px;
+  margin-left: -13px;
 }
 
 .productPage{
@@ -32,6 +32,7 @@ code {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  width: 70vh;
 }
 
 .table-transparent{
@@ -45,17 +46,17 @@ code {
   margin-right: auto;
   position: relative;
   top: 20px;
+  
 }
 
 .content {
+  margin-right: auto;
   margin-top: 60px;
-  width: 188vh;
+  width: 170vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around !important;
+  /* justify-content: space-around !important; */
   position: relative;
-  left: 20px fixed;
-  overflow: hidden;
 }
 
 .card{
@@ -224,7 +225,7 @@ input {
     margin-right: auto;
     display: flex;
     position: relative;
-    left: 3px;
+    left: 6px;
     z-index: 999;
     width: 40px;
   }
