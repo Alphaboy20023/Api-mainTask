@@ -133,12 +133,14 @@
 
         return (
             <>
+            <div className="productPage">
                 <Navbar />
+                <div className="wholePage">
                 <Sidebar />
                 <div className="content">
-                    <div className="d-flex justify-content-between stubborn">
+                    <div className="d-flex justify-content-between mb-3">
                         <h2>Users</h2>
-                        <button type="button" className=" mb-2 text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" className="text-light border-0 btn valid newuser" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Add New User
                         </button>
                         <ModalUser
@@ -232,8 +234,10 @@
                             ))}
                         </tbody>
                     </table>}
-
                 </div>
+                </div>
+            </div>
+                
             </>
         );
     }

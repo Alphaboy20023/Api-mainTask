@@ -18,10 +18,10 @@ code {
 
 .sidebar{
   /* z-index: 999; */
-  width: 36px;
+  width: 40px;
   display: flex;
   justify-content: right;
-  margin-left: -12px;
+  margin-left: -15px;
 }
 
 .productPage{
@@ -207,7 +207,7 @@ input {
     margin-right: auto;
     display: flex;
     position: relative;
-    left: 1px;
+    left: 7px;
     z-index: 999;
   }
 
@@ -215,6 +215,10 @@ input {
     width: 178px;
     position: relative;
     flex-wrap: nowrap;
+  }
+
+  .valid {
+    width: 140px;
   }
 
   .mobilesrc {
@@ -236,7 +240,7 @@ input {
     display: flex;
     width: 80%;
     position: relative;
-    right: 29px; 
+    right: 26px; 
     gap: 10px;
   }
 
