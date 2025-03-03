@@ -14,6 +14,7 @@ export const fetchProductsByCategory = createAsyncThunk(
     }
 );
 
+// To fetch product by ID 
 export const fetchProductById = createAsyncThunk (
     'products/fetchProductById',
     async (ProductId) => {

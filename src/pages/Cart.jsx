@@ -117,10 +117,12 @@ function Cart(params) {
 
   return (
     <>
+    <div className="productPage">
       <Navbar />
+    <div className="wholePage">
       <Sidebar />
-
       <div className="content">
+        <div className="py-3">
         <div className="d-flex justify-content-between stubborn">
           <h2>Cart</h2>
           <CartModal
@@ -139,6 +141,7 @@ function Cart(params) {
           <button type="button" className="mb-2 text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add to Cart
           </button>
+        </div>
         </div>
         <div className="card bg-light">
           <div className="card-body d-flex d-inline-flex justify-content-between align-items-center">
@@ -207,6 +210,10 @@ function Cart(params) {
 
         </div>
       </div>
+    </div>
+    </div>
+
+     
     </>
   )
 };

@@ -18,7 +18,7 @@ code {
 
 .sidebar{
   /* z-index: 999; */
-  width: 40px;
+  width: 42px;
   display: flex;
   justify-content: right;
   margin-left: -15px;
@@ -207,9 +207,11 @@ input {
     margin-right: auto;
     display: flex;
     position: relative;
-    left: 7px;
+    left: 3px;
     z-index: 999;
+    width: 40px;
   }
+  
 
   .valid1{
     width: 178px;
