@@ -311,10 +311,7 @@ input {
   width: auto;
 }
 
-.table-transparent {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 .card {
   width: 100%;

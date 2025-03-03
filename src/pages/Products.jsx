@@ -230,14 +230,14 @@ function Home(params) {
             {loading ? (
               <p>Loading...</p>
             ) : (
-              <table className="table border-radius-2 w-50 table-transparent">
+              <table className="table border-radius-2  table-transparent">
                 <thead>
                   <tr className="table-rw">
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Cat.</th>
-                    <th scope="col">Desc.</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Image</th>
                     <th scope="col">Action</th>
                   </tr>
