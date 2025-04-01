@@ -1,14 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const logIn = createAsyncThunk('auth/logIn', async (credential, _) => {
+    const credentials = {username: 'john_doe', password: 'pass123' };
     const response = await fetch('https://fakestoreapi.com/auth/login', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username: credential.username,
-            password: credential.password
+            username: credentials.username,
+            password: credentials.password
         })
     });
 
