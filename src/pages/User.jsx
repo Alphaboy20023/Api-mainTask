@@ -137,37 +137,38 @@ function User() {
                 <Navbar />
                 <div className="wholePage">
                     <Sidebar />
-                    <div className="content">
+                    <div className="content" style={{ marginLeft: '20px' }}>
                         <div className="py-3">
-                            <div className="pageWord">
-                                <div className="d-flex justify-content-between mb-3">
-                                    <h2>Users</h2>
+                            <div className="pageword">
+                                <h2>Users</h2>
+                                <div className="product">
                                     <button type="button" className="text-light border-0 btn valid newuser" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Add New User
                                     </button>
-                                    <ModalUser
-                                        firstname={firstname}
-                                        lastname={lastname}
-                                        email={email}
-                                        password={password}
-                                        phone={phone}
-                                        city={city}
-                                        street={street}
-                                        zipcode={zipcode}
-                                        geolocation={geolocation}
-                                        onChangezipcode={onChangezipcode}
-                                        onChangegeolocation={onChangegeolocation}
-                                        onChangestreet={onChangestreet}
-                                        onChangefirstname={onChangefirstname}
-                                        onChangelastname={onChangelastname}
-                                        onChangeemail={onChangeemail}
-                                        onChangePassword={onChangePassword}
-                                        onChangephone={onChangephone}
-                                        onChangecity={onChangecity}
-                                        handleSubmit={handleSubmit}
-                                    />
                                 </div>
                             </div>
+                            <ModalUser
+                                firstname={firstname}
+                                lastname={lastname}
+                                email={email}
+                                password={password}
+                                phone={phone}
+                                city={city}
+                                street={street}
+                                zipcode={zipcode}
+                                geolocation={geolocation}
+                                onChangezipcode={onChangezipcode}
+                                onChangegeolocation={onChangegeolocation}
+                                onChangestreet={onChangestreet}
+                                onChangefirstname={onChangefirstname}
+                                onChangelastname={onChangelastname}
+                                onChangeemail={onChangeemail}
+                                onChangePassword={onChangePassword}
+                                onChangephone={onChangephone}
+                                onChangecity={onChangecity}
+                                handleSubmit={handleSubmit}
+                            />
+
                         </div>
 
                         <div className="card bg-light fs-6">
@@ -193,7 +194,7 @@ function User() {
                         <div>
 
 
-                            {stores.length > 0 && <table className="table table-secondary table-hover bg-transparent w-100">
+                            {stores.length > 0 && <table className="table table-secondary table-hover bg-transparent w-auto">
                                 <thead>
                                     <tr className="table-rw">
                                         <th scope="col">#</th>
@@ -225,17 +226,19 @@ function User() {
                                             <td>{user.address.geolocation?.long}</td>
                                             <td>{user.address.geolocation?.lat}</td>
 
-                                            <td className="d-flex ">
-                                                <ConfirmDelete
-                                                    handleDelete={handleDelete}
-                                                    index={index}
-                                                />
+                                            <td className="d-flex flex-column">
                                                 <UpDateUser
                                                     user={user}
                                                     handleUserUpdate={handleUserUpdate}
                                                     index={index}
 
                                                 />
+                                                <div className="py-3">
+                                                    <ConfirmDelete
+                                                        handleDelete={handleDelete}
+                                                        index={index}
+                                                    />
+                                                </div>
                                             </td>
                                         </tr>
                                     ))}

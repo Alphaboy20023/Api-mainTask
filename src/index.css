@@ -18,10 +18,7 @@ code {
 
 .sidebar{
   z-index: 999;
-  width: 42px;
-  display: flex;
-  justify-content: right;
-  margin-left: 20px;
+  width: 5px;
 }
 
 .productPage{
@@ -31,8 +28,18 @@ code {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
   width: 100%;
+  overflow: hidden;
+}
+
+.pageword{
+  display: flex;
+  flex-direction: row;
+}
+.pageword .product{
+  position: relative;
+  margin-left: auto;
+  right: 112px;
 }
 
 .table-transparent{
@@ -42,19 +49,20 @@ code {
 .wholePage{
   display: flex;
   flex-direction: row;
-  gap: 34px !important;
+  gap: 30px !important;
   position: relative;
   top: 20px;
-  
 }
 
 .content {
-  margin-top: 60px;
-  width: 80%;
+  margin-top: 40px;
+  width: 89%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around !important; */
-  position: relative;
+  justify-content: space-around !important;
+  position: relative; 
+  overflow: hidden;
+  padding: 15px;                  
 }
 
 .card{

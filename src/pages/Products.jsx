@@ -137,7 +137,7 @@ function Home(params) {
       <Navbar />
       <div className="wholePage">
         <Sidebar />
-        <div className="content">
+        <div className="content " style={{marginLeft:'20px'}}>
           <div className=" py-3">
             <div className="pageword">
               <h2>Products</h2>

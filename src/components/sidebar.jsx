@@ -12,8 +12,8 @@ function Sidebar(params) {
   return (
     <>
      <div className=" sidebar mt-4">
-      <div className=" bg-light" style={{ height: '200vh', position:"fixed"}}>
-        <ul className="nav flex-column">
+      <div className=" bg-light" style={{height: '200vh', position:"fixed", width:"8vh"}}>
+        <ul className="nav flex-column" style={{position:"relative", right:"6px"}}>
           <li className="nav-item">
             <NavLink className="nav-link fs-2 text-dark" to="/Home" aria-disabled>
             </NavLink>

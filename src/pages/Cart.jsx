@@ -123,8 +123,14 @@ function Cart(params) {
           <Sidebar />
           <div className="content" style={{marginLeft:'20px'}}>
             <div className="py-3">
-              <div className="d-flex justify-content-between stubborn">
+              <div className="pageword">
                 <h2>Cart</h2>
+                <div className="product">
+                <button type="button" className="mb-2 text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Add to Cart
+                </button>
+                </div>
+              </div>
                 <CartModal
                   id={id}
                   UserId={userId}
@@ -138,10 +144,7 @@ function Cart(params) {
                   onchangedate={onchangedate}
                   handlesubmit={handlesubmit}
                 />
-                <button type="button" className="mb-2 text-light border-0 btn valid newuser fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Add to Cart
-                </button>
-              </div>
+              
             </div>
             <div className="card bg-light">
               <div className="card-body d-flex d-inline-flex justify-content-between align-items-center">
