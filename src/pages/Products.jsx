@@ -211,7 +211,7 @@ function Home(params) {
                 Change
               </button>
 
-              <SearchBar className="w-50" value={searchTerm} onChange={handleSearchChange} />
+              <SearchBar className="w-auto" value={searchTerm} onChange={handleSearchChange} />
             </div>
             {/* <nav aria-label="Page navigation">
               <ul className="pagination">

@@ -21,6 +21,12 @@ code {
   width: 5px;
 }
 
+.sidebardiv{
+  height: 200vh;
+  position: fixed;
+  width: 8vh;
+}
+
 .productPage{
   display: flex;
   flex-direction: row;
@@ -36,6 +42,7 @@ code {
   display: flex;
   flex-direction: row;
 }
+
 .pageword .product{
   position: relative;
   margin-left: auto;
@@ -149,7 +156,7 @@ width: 100%;
 
 
 .mobilesearch {
-  width: 400px;
+  width: 45vh;
 }
 
 
@@ -224,8 +231,8 @@ input {
 @media (max-width: 820px) {
   
 
-  .sidebar{
-    margin-left: 50px;
+  .sidebardiv{
+    width: 5.3vh;
   }
 
   .valid1{
@@ -275,9 +282,13 @@ input {
   .wholePage {
     gap: none;
     margin-right: none;
-    width: 80%;
     position: relative;
-    
+  }
+
+  .content{
+    position: relative;
+    right: 5px;
+    width: 100%;
   }
 
   .card {
@@ -339,7 +350,7 @@ input {
 }
 
 .mobilesearch {
-  width: auto;
+  width: 30vh;
 }
 
 

@@ -4,8 +4,6 @@ import { FaSearch } from 'react-icons/fa'; // Import the search icon from Font A
 const SearchBar = ({value, onChange}) => {
     const handleSearch = (e) => {
         e.preventDefault();
-        // Implement your search logic here
-        console.log('Searching for:');
     };
 
     return (
